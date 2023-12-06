@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/zenika.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vive les CSS sémantiques</title>
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1 class="r-fit-text">la puissance des <br>CSS Sémantiques</h1>
+
+          <p>
+            Jérémie Patonnier — Zenika <img src="zenika.svg" style="height:.8em; margin: 0" alt="" /><br>
+            <small>@JeremiePat (<em>Mastondon, GitHub, etc.</em>)</small>
+          </p>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">Le constat qui pique</h1>
+
+          <p><strong>La plupart des développeurs fullstack <br>(et un peu front) ne comprennent rien à CSS.</strong></p>
+
+          <ul>
+            <li class="fragment fade-left">Les sélecteurs</li>
+            <li class="fragment fade-left">La cascade</li>
+            <li class="fragment fade-left">Les « <a href="http://developer.mozilla.org/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context" target="_blank"><i lang="en">Stacking Context</i></a> »</li>
+            <li class="fragment fade-left">
+              Le cycle de rendu des navigateurs
+              <span class="fragment"><br>⇢ <a href="https://www.youtube.com/watch?v=cCOL7MC4Pl0" target="_blank">Jack Archibald — In The Loop — JSConf.Asia 2018</a></span>
+            </li>
+          </ul>
+
+          <aside class="notes">
+            <p>
+              <a href="https://css-tricks.com/browser-painting-and-considerations-for-web-performance/">https://css-tricks.com/browser-painting-and-considerations-for-web-performance/</a>
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">Les réalités de la vie</h1>
+
+          <p><strong>Écrire et maintenir des feuilles de styles compactes et performantes, c'est compliqué !</strong></p>
+
+          <ul>
+            <li class="fragment fade-left">
+              Des méthodes :
+                <a href="http://oocss.org/" target="_blank">OOCSS</a>,
+                <a href="https://smacss.com/" target="_blank">SMACSS</a>,
+                <a href="https://getbem.com/" target="_blank">BEM</a>,
+                <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/" target="_blank">ITCSS</a>,
+                <a href="https://cube.fyi/" target="_blank">CUBE</a>...
+            </li>
+            <li class="fragment fade-left">
+              Des frameworks/bibliothèques : <br>
+              <a href="https://csstools.github.io/normalize.css/">Normalize</a>,
+              <a href="http://getskeleton.com" target="_blank">Skeleton</a>,
+                <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>,
+                <a href="https://get.foundation/" target="_blank">Foundation</a>,
+                <a href="https://bulma.io/" target="_blank">Bulma</a>,
+                etc.
+            <li class="fragment fade-left">
+              Des Design Systèmes : <br>
+                  <a href="https://m3.material.io/" target="_blank">Material</a>,
+                  <a href="https://www.microsoft.com/design/fluent" target="_blank">Fluent</a>,
+                  <a href="https://primer.style/" target="_blank">Primer</a>,
+                  <a href="https://polaris.shopify.com/" target="_blank">Polaris</a>... (
+                    <a href="https://www.systeme-de-design.gouv.fr/" target="_blank">FR</a>,
+                    <a href="https://design-system.service.gov.uk" target="_blank">UK</a>,
+                    <a href="https://designsystem.digital.gov/" target="_blank">USA</a>
+                  )
+            </li>
+            <li class="fragment fade-left">
+              Des outils : <br>
+                <a href="https://sass-lang.com/" target="_blank">SASS</a>,
+                <a href="https://lesscss.org/" target="_blank">LESS</a>,
+                <a href="https://postcss.org/" target="_blank">PostCSS</a>,
+                <a href="https://lightningcss.dev/" target="_blank">Lightning CSS</a>,
+                <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>,
+                <a href="https://unocss.dev/" target="_blank">UnoCSS</a>...
+            </li>
+            <li class="fragment fade-left">
+              Et des idées à la con :
+                CSS-in-JS (<a href="https://cssinjs.org" target="_blank">JSS</a>, <a href="https://styled-components.com/" target="_blank">Style Components</a>, <a href="https://emotion.sh" target="_blank">Emotion</a>, <a href="https://stitches.dev" target="_blank">Stitches</a>),
+                <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
+            </li>
+          </ul>
+
+          <aside class="notes">
+            <p>
+              <a href="https://css-tricks.com/browser-painting-and-considerations-for-web-performance/">https://css-tricks.com/browser-painting-and-considerations-for-web-performance/</a>
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">CSS se modernise !</h1>
+
+          <ul>
+            <li class="fragment fade-left">De nouveaux sélecteurs :
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:is" target="_blank">:is()</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:where" target="_blank">:where()</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:has" target="_blank">:has()</a>
+            </li>
+            <li class="fragment fade-left">De nouvelles syntaxes :
+              <a href="https://developer.mozilla.org/docs/Web/CSS/Using_CSS_custom_properties" target="_blank">Custom Properties</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_nesting/Using_CSS_nesting" target="_blank">Nesting</a>
+            </li>
+            <li class="fragment fade-left">De nouvelles fonctionnalités :
+              <a href="https://developer.mozilla.org/docs/Web/CSS/@container" target="_blank">@container</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/@layer" target="_blank">@layer</a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">CSS sémantiques ?</h1>
+
+          <p class="fragment fade-in">
+            Les CSS sémantiques sont des styles qui reflètent une réalité qui est exprimé dans la sémantique du code HTML.
+          </p>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text contrast">Pros &amp; Cons</h1>
+
+          <ul>
+            <li class="fragment fade-left">Chaque structure sémantique à son style propre</li>
+            <li class="fragment fade-left">Tout changement de la structure HTML impact CSS</li>
+            <li class="fragment fade-left">La sémantique de HTML est limité même avec ARIA</li>
+          </ul>
+
+          <aside class="notes">
+            <p>
+              <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/">https://adamwathan.me/css-utility-classes-and-separation-of-concerns/</a>
+              <a href="https://nicolasgallagher.com/about-html-semantics-front-end-architecture/">https://nicolasgallagher.com/about-html-semantics-front-end-architecture/</a>
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">Spécificité des sélecteurs CSS</h1>
+
+          <table>
+            <tr>
+              <th scope="col">ID (<code>#</code>)
+              <th scope="col">Classe (<code>.</code>), Attribut (<code>[...]</code>), <br>Pseudo-classe (<code>:</code>)
+              <th scope="col">Element
+            <tr>
+              <td>0
+              <td>0
+              <td>0
+          </table>
+
+          <ul style="
+            font-size:.85em;
+            margin-top: 1.5rem
+          ">
+            <li class="fragment fade-left">Les combinateurs (<strong><code>+</code></strong>, <strong><code>></code></strong>, <strong><code>~</code></strong>) et les queries (<code>@</code>) ne sont pas comptés</li>
+            <li class="fragment fade-left">La pseudo-classe <strong><code>:where()</code></strong> et tout ce quel contient n'est pas compté</li>
+            <li class="fragment fade-left">Les pseudo-class <strong><code>:is()</code></strong>, <strong><code>:has()</code></strong> et <strong><code>:not()</code></strong> sont comptés <br>avec le poids du sélecteurs le plus lourd qu'elles contiennent</li>
+          </ul>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            # Sémantique ou pas ? <!-- .element: class="r-fit-text" -->
+
+            ```css
+            /* Un nom de classe ou d'ID, même intelligible */
+            /* ne reflète aucune sémantique HTML           */
+            .button, #dialog { /* 0.1.0 / 1.0.0 */ }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+
+            ```css
+            /* Les noms d'éléments HTML sont sémantiques mais fragiles */
+            button { /* 0.0.1 */ }
+            section > :is(h1, h2, h3, h4, h5, h6) { /* 0.0.2 */ }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+
+            ```css
+            /* Le sélecteur d'attribut et les pseudo-classes qui reflètent */
+            /* des états de HTML représentent une sémantique forte */
+            [role="button"]:is(:hover, :active, :focus) { /* 0.2.0 */ }
+            section:empty { /* 0.1.1 */ }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            # Voir les problèmes<!-- .element: class="r-fit-text" -->
+
+            ```css
+            /* Identifier les problèmes                */
+            /* ⚠️ en environnement de dev uniquement ! */
+
+            /* Un style par défaut qui met tous les problèmes en évidence */
+            * { /* 0.0.0 */
+              outline: 5px solid var(--color-error);
+              outline-offset: 5px;
+            }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+            ```css
+            /* Utiliser les négations pour montrer les problèmes spécifiques */
+            section:not(:has(> :first-child:is(h1, h2, h3))) { /* 0.1.2 */
+              background: var(--color-error);
+            }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+            ```css
+            /* Créer des styles par défaut qui montre un problème */
+            /* puis les annuler dans les cas prévus.              */
+            section { background: var(--color-error); } /* 0.0.1 */
+            section:has(> :first-child:is(h1, h2, h3)) { background: none; } /* 0.1.2 */
+            ```
+            <!-- .element: class="fragment fade-in" -->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            # Associer styles et structures <!-- .element: class="r-fit-text" -->
+
+
+            ```html
+            <section aria-labeledby="title-a11y">
+              <h1 id="title-a11y">Hello !</h1>
+            </section>
+            ```
+
+            ```css[1-2|4-5]
+            /* On peut mettre des titre n'importe ou... bof 🤔 */
+            h1, h2, h3, h4, h5, h6 { /* 0.0.1 */ }
+
+            /* On devrait toujours mettre un titre dans une section */
+            section > :is(h1, h2, h3, h4, h5, h6) { /* 0.0.2 */ }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+
+            ```css[1-2|4-5|7-8]
+            /* Un section seul ne vaut pas mieux qu'un div 🤤 */
+            section { /* 0.0.1 */ }
+
+            /* Les sections doivent avoir un titre */
+            section:has(> :is(h1, h2, h3, h4, h5, h6)) { /* 0.0.2 */ }
+
+            /* Les régions doivent avoir un libellé accessible */
+            section[aria-labeledby]:has(> :is(h1, h2, h3, h4, h5, h6)[id]) { /* 0.2.2 */ }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            # Définir un composant sémantique <!-- .element: class="r-fit-text" -->
+
+            Un bouton sémantique
+
+            ```html
+            <button>Button A</button>
+            <a role="button" href="#">Button B</a>
+            <input type="image" src="..." alt="Button C">
+            ```
+
+            ```css[1-3,6-14]
+            :is(button, a[role="button"], input[type="image"]) {
+              /* 0.1.1 */
+
+              /* Modificateurs de style arbitraire scopé */
+              &.secondary { /* 0.2.1 */ }
+
+              /* Modificateurs d'état sémantique */
+              &:is(:hover, :focus, :active) { /* 0.2.1 */ }
+
+              &:is(
+                :disabled,
+                [aria-disabled="true"][tabindex="-1"]
+              ) { /* 0.3.1 */ }
+            }
+            ```
+            <!-- .element: class="fragment fade-in" -->
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="slide-in fade-out">
+          <textarea data-template>
+            # Définir un composant sémantique <!-- .element: class="r-fit-text" -->
+
+            ARIA Authoring Practices : [Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+
+            ```html
+            <ul role="tablist" aria-label="Mes onglets">
+              <li role="tab" id="t1" aria-controls="p1" aria-active="true" tabindex="0">
+                ...
+              </li>
+              <li role="tab" id="t2" aria-controls="p2" aria-active="false" tabindex="-1">
+                ...
+              </li>
+            </ul>
+
+            <section role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0">
+              ...
+            </section>
+
+            <section role="tabpanel" id="p2" aria-labelledby="t2" tabindex="-1" hidden>
+              ...
+            </section>
+            ```
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition="fade-in slide-out">
+          <textarea data-template>
+            # Définir un composant sémantique <!-- .element: class="r-fit-text" -->
+
+            ARIA Authoring Practices : [Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+
+            ```css[1-2,16|4-5,9|4-9|11-12,15|11-15|1-16]
+            [role="tablist"] {
+              /* 0.1.0 */
+
+              & > [role="tab"] {
+                /* 0.2.0 */
+
+                &[aria-active="true"]  { /* 0.3.0 */ }
+                &[aria-active="false"] { /* 0.3.0 */ }
+              }
+
+              & ~ [role="tabpanel"] {
+                /* 0.2.0 */
+
+                &[hidden] { /* 0.3.0 */ }
+              }
+            }
+            ```
+          </textarea>
+        </section>
+
+        <section>
+          <h1>Dans le future</h1>
+
+          <ul>
+            <li class="fragment">Lire et utiliser les valeurs des attributs HTML avec
+              <a href="https://drafts.csswg.org/css-values-5/#funcdef-attr" target="_blank">attr()</a></li>
+            <li class="fragment">Simplifier/mutualiser les sélecteurs avec
+              <a href="https://drafts.csswg.org/css-extensions/#custom-propertyr" target="_blank">@custom-selector</a></li>
+            <li class="fragment">Plus de sélecteur sémantique:
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:local-link" target="_blank">:local-link</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:target-within" target="_blank">:target-within</a>,
+              <a href="https://developer.mozilla.org/docs/Web/CSS/:popover-open" target="_blank">:popover-open</a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">C'est génial mais…</h1>
+
+          <ul>
+            <li class="fragment fade-left">Tout ne peut pas être sémantique (<i lang="en">Layout</i>)</li>
+            <li class="fragment fade-left">Les sélecteurs peuvent vite devenir très complexe</li>
+            <li class="fragment fade-left">Même avec ARIA, certains composants restent ambiguës (les alertes ou les champs de formulaire par exemple)</li>
+          </ul>
+
+          <p class="fragment fade-in">
+            Pour bénéficier de toute la puissance des CSS sémantiques,
+            <br>il faut d'abord commencer par maîtriser <a href="https://web.dev/learn/html/semantic-html" target="_blank">la sémantique HTML (avec ARIA)</a>
+            et prendre un parti-pris assumé sur les structures de balises utilisables.</p>
+        </section>
+
+        <section>
+          <h1 class="r-fit-text">Ce qu'il faut retenir</h1>
+
+          <ul>
+            <li class="fragment fade-left">Ne vous laissez pas enfermer par vos outils</li>
+            <li class="fragment fade-left">CSS est un outil riche et puissant, apprenez à le maîtriser</li>
+            <li class="fragment fade-left">Les CSS utilitaires et sémantiques sont des outils, pas des solutions</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>MERCI 🥰</h1>
+          <h2>Questions ?</h2>
+
+          <p>
+            Jérémie Patonnier — Zenika <img src="zenika.svg" style="height:.8em; margin: 0" alt="" /><br>
+            <small>@JeremiePat (<em>Mastondon, GitHub, etc.</em>)</small>
+          </p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

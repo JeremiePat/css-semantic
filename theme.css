@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Open+Sans&display=swap');
+
+:root {
+  --r-main-font: 'Open Sans', sans-serif;
+  --r-main-font-size: 2rem;
+  --r-heading-font: 'Nunito', sans-serif;
+  --r-heading-text-shadow: none;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 3em;
+  --r-heading2-size: 2em;
+  --r-heading3-size: 1.5em;
+  --r-heading4-size: 1em;
+}
+
+.reveal .backgrounds {
+  background-image: url('/zenika.svg');
+  background-size: 40px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+}
