@@ -20,7 +20,12 @@
           </p>
         </section>
 
-        <section>
+        <section
+          data-background-image="./fry-crop.png"
+          data-background-size="contain"
+          data-background-repeat="no-repeat"
+          data-background-position="left"
+        >
           <h1 class="r-fit-text">Le constat qui pique</h1>
 
           <p><strong>La plupart des développeurs fullstack <br>(et un peu front) ne comprennent rien à CSS.</strong></p>
@@ -42,52 +47,66 @@
           </aside>
         </section>
 
-        <section>
+        <section
+          data-background-image="./demon.png"
+          data-background-size="contain"
+          data-background-repeat="no-repeat"
+          data-background-position="-25%"
+        >
           <h1 class="r-fit-text">Les réalités de la vie</h1>
 
           <p><strong>Écrire et maintenir des feuilles de styles compactes et performantes, c'est compliqué !</strong></p>
 
           <ul>
             <li class="fragment fade-left">
-              Des méthodes :
+              Des méthodes : <br><small>
                 <a href="http://oocss.org/" target="_blank">OOCSS</a>,
                 <a href="https://smacss.com/" target="_blank">SMACSS</a>,
                 <a href="https://getbem.com/" target="_blank">BEM</a>,
                 <a href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/" target="_blank">ITCSS</a>,
                 <a href="https://cube.fyi/" target="_blank">CUBE</a>...
+              </small>
             </li>
             <li class="fragment fade-left">
-              Des frameworks/bibliothèques : <br>
-              <a href="https://csstools.github.io/normalize.css/">Normalize</a>,
-              <a href="http://getskeleton.com" target="_blank">Skeleton</a>,
+              Des frameworks/bibliothèques : <br><small>
+                <a href="https://csstools.github.io/normalize.css/">Normalize</a>,
+                <a href="http://getskeleton.com" target="_blank">Skeleton</a>,
                 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>,
                 <a href="https://get.foundation/" target="_blank">Foundation</a>,
                 <a href="https://bulma.io/" target="_blank">Bulma</a>,
                 etc.
+              </small>
             <li class="fragment fade-left">
-              Des Design Systèmes : <br>
+              Des Design Systèmes : <br><small>
                   <a href="https://m3.material.io/" target="_blank">Material</a>,
                   <a href="https://www.microsoft.com/design/fluent" target="_blank">Fluent</a>,
                   <a href="https://primer.style/" target="_blank">Primer</a>,
-                  <a href="https://polaris.shopify.com/" target="_blank">Polaris</a>... (
-                    <a href="https://www.systeme-de-design.gouv.fr/" target="_blank">FR</a>,
+                  <a href="https://polaris.shopify.com/" target="_blank">Polaris</a>...
+                    (<a href="https://www.systeme-de-design.gouv.fr/" target="_blank">FR</a>,
                     <a href="https://design-system.service.gov.uk" target="_blank">UK</a>,
-                    <a href="https://designsystem.digital.gov/" target="_blank">USA</a>
-                  )
+                    <a href="https://designsystem.digital.gov/" target="_blank">USA</a>)
+              </small>
             </li>
             <li class="fragment fade-left">
-              Des outils : <br>
+              Des outils : <br><small>
                 <a href="https://sass-lang.com/" target="_blank">SASS</a>,
                 <a href="https://lesscss.org/" target="_blank">LESS</a>,
                 <a href="https://postcss.org/" target="_blank">PostCSS</a>,
                 <a href="https://lightningcss.dev/" target="_blank">Lightning CSS</a>,
                 <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>,
                 <a href="https://unocss.dev/" target="_blank">UnoCSS</a>...
+              </small>
             </li>
             <li class="fragment fade-left">
-              Et des idées à la con :
-                CSS-in-JS (<a href="https://cssinjs.org" target="_blank">JSS</a>, <a href="https://styled-components.com/" target="_blank">Style Components</a>, <a href="https://emotion.sh" target="_blank">Emotion</a>, <a href="https://stitches.dev" target="_blank">Stitches</a>),
+              Et des idées à la con : <br><small>
+                CSS-in-JS
+                 (<a href="https://cssinjs.org" target="_blank">JSS</a>,
+                  <a href="https://styled-components.com/" target="_blank">Style Components</a>,
+                  <a href="https://emotion.sh" target="_blank">Emotion</a>,
+                  <a href="https://stitches.dev" target="_blank">Stitches</a>,
+                  <a href="https://stylexjs.com" target="_blank">StyleX</a>),
                 <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
+              </small>
             </li>
           </ul>
 
@@ -205,7 +224,7 @@
 
             /* Un style par défaut qui met tous les problèmes en évidence */
             * { /* 0.0.0 */
-              outline: 5px solid var(--color-error);
+              outline: 5px solid var(--color-error, red);
               outline-offset: 5px;
             }
             ```
@@ -213,14 +232,14 @@
             ```css
             /* Utiliser les négations pour montrer les problèmes spécifiques */
             section:not(:has(> :first-child:is(h1, h2, h3))) { /* 0.1.2 */
-              background: var(--color-error);
+              background: var(--color-error, red);
             }
             ```
             <!-- .element: class="fragment fade-in" -->
             ```css
             /* Créer des styles par défaut qui montre un problème */
             /* puis les annuler dans les cas prévus.              */
-            section { background: var(--color-error); } /* 0.0.1 */
+            section { background: var(--color-error, red); } /* 0.0.1 */
             section:has(> :first-child:is(h1, h2, h3)) { background: none; } /* 0.1.2 */
             ```
             <!-- .element: class="fragment fade-in" -->
@@ -389,11 +408,18 @@
         </section>
 
         <section>
-          <h1>MERCI 🥰</h1>
-          <h2>Questions ?</h2>
+
+          <table>
+            <tr>
+              <th style="border:none"><h1>MERCI 🥰</h1>
+              <td rowspan="2" style="border:none">
+                <img src="tz-qrcode-openfeedback.png" style="height: 7em; margin: 0" alt="" />
+            <tr>
+              <th><h2>Questions ?</h2>
+          </table>
 
           <p>
-            Jérémie Patonnier — Zenika <img src="zenika.svg" style="height:.8em; margin: 0" alt="" /><br>
+            Jérémie Patonnier — Technozaure 2023<br>
             <small>@JeremiePat (<em>Mastondon, GitHub, etc.</em>)</small>
           </p>
         </section>

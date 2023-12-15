@@ -13,8 +13,10 @@
 }
 
 .reveal .backgrounds {
-  background-image: url('/zenika.svg');
-  background-size: 40px;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
+  background-image: url('/zenika.svg'), url('/background-zenika.png');
+  background-blend-mode: normal, multiply;
+  background-color: grey;
+  background-size: 40px, cover;
+  background-position: 15px 15px, center;
+  background-repeat: no-repeat, no-repeat;
 }
